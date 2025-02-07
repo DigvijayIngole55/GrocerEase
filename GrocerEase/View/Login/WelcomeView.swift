@@ -17,7 +17,7 @@ struct WelcomeView: View {
                 .frame(width: .screenWidht, height: .screenHeight)
             VStack{
                 Spacer()
-                Image("app_logo")
+                Image("logo_white")
                     .resizable()
                     .frame(width: 100,height: 100)
                 Text("Welcome\nto our store")

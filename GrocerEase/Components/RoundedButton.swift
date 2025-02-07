@@ -13,7 +13,7 @@ struct RoundedButton: View {
     var body: some View {
         Button(action: {onTap?()}, label: {
             Text(title)
-                .font(.customfont(.Regular, fontSize: 18))
+                .font(.customfont(.SemiBold, fontSize: 18))
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
         })

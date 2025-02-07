@@ -9,10 +9,11 @@ import SwiftUI
 
 @main
 struct GrocerEaseApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
-        WindowGroup {
+        WindowGroup {	
             NavigationView{
                 WelcomeView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)

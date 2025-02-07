@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC2A27262D53FCEA0000EAE2 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2A27252D53FCEA0000EAE2 /* Theme.swift */; };
+		CC47035C2D55BD7C00729057 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CC47035B2D55BD7C00729057 /* FirebaseAuth */; };
+		CC47035E2D55BD7C00729057 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = CC47035D2D55BD7C00729057 /* FirebaseCore */; };
+		CC4703602D55BD7C00729057 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CC47035F2D55BD7C00729057 /* FirebaseFirestore */; };
 		CC7DD1352D54650900F60BB7 /* CountryPicker in Frameworks */ = {isa = PBXBuildFile; productRef = CC7DD1342D54650900F60BB7 /* CountryPicker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CC2A27252D53FCEA0000EAE2 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		CC9D516D2D53E34B005CC735 /* GrocerEase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrocerEase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -43,6 +44,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC7DD1352D54650900F60BB7 /* CountryPicker in Frameworks */,
+				CC4703602D55BD7C00729057 /* FirebaseFirestore in Frameworks */,
+				CC47035E2D55BD7C00729057 /* FirebaseCore in Frameworks */,
+				CC47035C2D55BD7C00729057 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +58,6 @@
 			children = (
 				CC9D51422D53D03C005CC735 /* GrocerEase */,
 				CC9D516D2D53E34B005CC735 /* GrocerEase.app */,
-				CC2A27252D53FCEA0000EAE2 /* Theme.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +82,9 @@
 			name = GrocerEase;
 			packageProductDependencies = (
 				CC7DD1342D54650900F60BB7 /* CountryPicker */,
+				CC47035B2D55BD7C00729057 /* FirebaseAuth */,
+				CC47035D2D55BD7C00729057 /* FirebaseCore */,
+				CC47035F2D55BD7C00729057 /* FirebaseFirestore */,
 			);
 			productName = GrocerEase;
 			productReference = CC9D516D2D53E34B005CC735 /* GrocerEase.app */;
@@ -110,6 +116,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				CC7DD1332D54650900F60BB7 /* XCRemoteSwiftPackageReference "CountryPicker" */,
+				CCF5A16A2D55B7A40048C61C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CC9D51372D53D03C005CC735;
@@ -136,7 +143,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC2A27262D53FCEA0000EAE2 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,9 +374,32 @@
 				minimumVersion = 2.0.3;
 			};
 		};
+		CCF5A16A2D55B7A40048C61C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.8.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CC47035B2D55BD7C00729057 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCF5A16A2D55B7A40048C61C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		CC47035D2D55BD7C00729057 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCF5A16A2D55B7A40048C61C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		CC47035F2D55BD7C00729057 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCF5A16A2D55B7A40048C61C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		CC7DD1342D54650900F60BB7 /* CountryPicker */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CC7DD1332D54650900F60BB7 /* XCRemoteSwiftPackageReference "CountryPicker" */;

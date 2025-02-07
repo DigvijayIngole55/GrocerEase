@@ -37,6 +37,33 @@ extension CGFloat {
     static func heightPer(percentage: Double)-> Double {
         return screenHeight * percentage
     }
+    static var topInsets: Double {
+            if let keyWindow = UIApplication.shared.keyWindow {
+                return keyWindow.safeAreaInsets.top
+            }
+            return 0.0
+        }
+        
+        static var bottomInsets: Double {
+            if let keyWindow = UIApplication.shared.keyWindow {
+                return keyWindow.safeAreaInsets.bottom
+            }
+            return 0.0
+        }
+        
+        static var horizontalInsets: Double {
+            if let keyWindow = UIApplication.shared.keyWindow {
+                return keyWindow.safeAreaInsets.left + keyWindow.safeAreaInsets.right
+            }
+            return 0.0
+        }
+        
+        static var verticalInsets: Double {
+            if let keyWindow = UIApplication.shared.keyWindow {
+                return keyWindow.safeAreaInsets.top + keyWindow.safeAreaInsets.bottom
+            }
+            return 0.0
+        }
 }
 
 extension Color {
@@ -69,7 +96,7 @@ extension Color {
 
 extension Color {
     static var primary: Color {
-        return Color(hex: "75d481")
+        return Color(hex: "62b56d")
     }
     
     static var primaryText: Color {

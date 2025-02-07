@@ -10,7 +10,7 @@ import CountryPicker
 
 struct SignInView: View {
     
-    @State var textMobile: String = ""
+    @StateObject var AuthVM = AuthSignInViewModel()
     @State var showCountryPicker: Bool = false
     @State var selectedCountry: Country?
     
@@ -18,6 +18,8 @@ struct SignInView: View {
         ZStack {
             Image("sign_in_bg")
                 .resizable()
+                .scaledToFill()
+                .frame(width: .screenWidht, height: .screenHeight)
             ScrollView{
                 VStack(alignment: .leading)  {
                     Spacer().frame(height: .screenHeight * 0.5)
@@ -27,17 +29,19 @@ struct SignInView: View {
                         .multilineTextAlignment(.leading)
                         .padding(.bottom,15)
                     
-                        Button{
-                            showCountryPicker = true
-                        }label: {
-                            if let selectedCountry = selectedCountry{
-                                Text("\(selectedCountry.isoCode.getFlag()) +\(selectedCountry.phoneCode )")
-                                    .font(.customfont(.SemiBold, fontSize:  18))
-                                    .foregroundColor(.primaryText)
-                                TextField("Enter Your Number", text: $textMobile)
+//                        Button{
+////                            showCountryPicker = true
+//                        }label: {
+////                            if let selectedCountry = selectedCountry{
+////                                Text("\(selectedCountry.isoCode.getFlag()) +\(selectedCountry.phoneCode )")
+////                                    .font(.customfont(.SemiBold, fontSize:  18))
+////                                    .foregroundColor(.primaryText)
+                    TextField("Enter Your Email", text: $AuthVM.emailText)
+                                    .foregroundColor(.black)
                                     .multilineTextAlignment(.leading)
-                            }
-                        }
+                                    .keyboardType(UIKeyboardType.emailAddress)
+                            //}
+//                        }
                         .padding()
                         
                         .background(.white)
@@ -45,24 +49,24 @@ struct SignInView: View {
                         .cornerRadius(10)
                     
                     Divider().padding(.bottom,10)
-                    Button{
-                        
+                    NavigationLink{
+                        LoginView(AuthVM: AuthVM)
                     }label: {
-                        Image("apple_logo")
+                        Image("email_logo")
                             .resizable()
-                            .frame(width: 20, height: 20)
+                            .frame(width: 25, height: 25)
                         Spacer()
 
                         Text(
-                            "Continue with Apple"
+                            "Continue with Email"
                         )
                         .font(.customfont(.SemiBold, fontSize: 18))
-                        .foregroundColor(.black)
+                        .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         Spacer()
                     }
                     .padding()
-                    .background(.white)
+                    .background(Color.primary)
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     .cornerRadius(10)
                     Button{
@@ -88,21 +92,21 @@ struct SignInView: View {
                     Button{
                         
                     }label: {
-                        Image("facebook_logo")
+                        Image("apple_logo")
                             .resizable()
-                            .frame(width: 25, height: 25)
+                            .frame(width: 20, height: 20)
                         Spacer()
 
                         Text(
-                            "Continue with Facebook"
+                            "Continue with Apple"
                         )
                         .font(.customfont(.SemiBold, fontSize: 18))
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                         .multilineTextAlignment(.center)
                         Spacer()
                     }
                     .padding()
-                    .background(Color(hex: "4A66AC"))
+                    .background(.white)
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     .cornerRadius(10)
                     
@@ -115,6 +119,9 @@ struct SignInView: View {
             self.selectedCountry = Country(phoneCode:"1", isoCode: "US")
         }
         .sheet(isPresented: $showCountryPicker, content: {CountryPickerView(country: $selectedCountry)})
+        .navigationTitle("")
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
         .ignoresSafeArea()
     
     }
